@@ -28,6 +28,8 @@ public class InquilinoFragment extends Fragment {
         binding = FragmentInquilinoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        vm.cargarInmuebles();
+
         vm.getmListInmueblesAlqu().observe(getViewLifecycleOwner(), inmuebles -> {
             RecyclerView rv=getActivity().findViewById(R.id.rvInmueblesAlq);
             GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(), 2,GridLayoutManager.VERTICAL,false);
