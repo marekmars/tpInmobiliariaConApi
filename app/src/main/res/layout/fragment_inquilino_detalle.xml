@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrainLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ui.inquilino.inquilinoDetalle.InquilinoDetalleFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvinquilinodetalle"
+        android:layout_width="379dp"
+        android:layout_height="647dp"
+
+        app:cardCornerRadius="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clinquilinoDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/top_bar">
+
+
+            <LinearLayout
+                android:id="@+id/linear4"
+                android:layout_width="217dp"
+                android:layout_height="644dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearinquilinodetalle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvCodigoLabelFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginTop="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="Código"
+                    android:textColor="@android:color/system_accent2_50"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvNombreLabelFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="Nombre"
+                    android:textColor="@android:color/system_accent2_50"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvApellidoLabelFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="Apellido"
+                    android:textColor="@android:color/system_accent2_50"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvDniLabelFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="Dni"
+                    android:textColor="@android:color/system_accent2_50"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvEmailLabelFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="Email"
+                    android:textColor="@android:color/system_accent2_50"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTelefonoLabelFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="Telefono"
+                    android:textColor="@android:color/system_accent2_50"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvGaranteLabelFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="Garante"
+                    android:textColor="@android:color/system_accent2_50"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTelGaranteFiLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginStart="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="Telefono Garante"
+                    android:textColor="@android:color/system_accent2_50"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearinquilinodetalle"
+                android:layout_width="162dp"
+                android:layout_height="647dp"
+                android:gravity="start"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvCodigoFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginTop="15sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:gravity="center_vertical|end"
+                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                    android:text="Código"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvNombreFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:gravity="center_vertical|end"
+                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                    android:text="Nombre"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvApellidoFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:gravity="center_vertical|end"
+                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                    android:text="Apellido"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDniFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:gravity="center_vertical|end"
+                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                    android:text="Dni"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvEmailFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:gravity="center_vertical|end"
+                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                    android:text="Email"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTelFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:gravity="center_vertical|end"
+                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                    android:text="Telefono"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvGaranteFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:gravity="center_vertical|end"
+                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                    android:text="Garante"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTelGaranteFI"
+                    android:layout_width="match_parent"
+                    android:layout_height="35sp"
+                    android:layout_marginEnd="15sp"
+                    android:layout_marginBottom="30sp"
+                    android:gravity="center_vertical|end"
+                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                    android:text="Telefono Garante"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

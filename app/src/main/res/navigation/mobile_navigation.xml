@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_ubicacion">
+
+    <fragment
+        android:id="@+id/nav_ubicacion"
+        android:name="com.heissen.tpinmobiliaria.ui.ubicacion.UbicacionFragment"
+        android:label="@string/ubicacion"
+        tools:layout="@layout/fragment_ubicacion" />
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.heissen.tpinmobiliaria.ui.perfil.PerfilFragment"
+        android:label="@string/perfil"
+        tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/nav_inmueble"
+        android:name="com.heissen.tpinmobiliaria.ui.inmueble.InmuebleFragment"
+        android:label="@string/inmuebles"
+        tools:layout="@layout/fragment_inmueble" >
+        <action
+            android:id="@+id/action_nav_inmueble_to_inmuebleDetalleFragment"
+            app:destination="@id/nav_inmueble_detalle" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_inquilino"
+        android:name="com.heissen.tpinmobiliaria.ui.inquilino.InquilinoFragment"
+        android:label="Inquilinos"
+        tools:layout="@layout/fragment_inquilino" >
+        <action
+            android:id="@+id/action_inquilinoFragment_to_inquilinoDetalleFragment"
+            app:destination="@id/nav_inquilino_detalle" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_inquilino_detalle"
+        android:name="com.heissen.tpinmobiliaria.ui.inquilino.inquilinoDetalle.InquilinoDetalleFragment"
+        android:label="Informacion Inquilino"
+        tools:layout="@layout/fragment_inquilino_detalle" >
+        <action
+            android:id="@+id/action_inquilinoDetalleFragment_to_inquilinoFragment"
+            app:destination="@id/nav_inquilino" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_contrato"
+        android:name="com.heissen.tpinmobiliaria.ui.contrato.ContratoFragment"
+        android:label="Contratos"
+        tools:layout="@layout/fragment_contrato" >
+        <action
+            android:id="@+id/action_contratoFragment_to_contratoDetalleFragment"
+            app:destination="@id/nav_contrato_detalle" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_contrato_detalle"
+        android:name="com.heissen.tpinmobiliaria.ui.contrato.contratoDetalle.ContratoDetalleFragment"
+        android:label="Informacion del Contrato"
+        tools:layout="@layout/fragment_contrato_detalle" >
+        <action
+            android:id="@+id/action_contratoDetalleFragment_to_contratoFragment"
+            app:destination="@id/nav_contrato" />
+        <action
+            android:id="@+id/action_contratoDetalleFragment_to_pagoFragment"
+            app:destination="@id/nav_pago" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_pago"
+        android:name="com.heissen.tpinmobiliaria.ui.contrato.contratoDetalle.pago.PagoFragment"
+        android:label="Pagos"
+        tools:layout="@layout/fragment_pago" >
+        <action
+            android:id="@+id/action_pagoFragment_to_contratoDetalleFragment"
+            app:destination="@id/nav_contrato_detalle" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_inmueble_detalle"
+        android:name="com.heissen.tpinmobiliaria.ui.inmueble.inmuebleDetalle.InmuebleDetalleFragment"
+        android:label="Detalles del Inmueble"
+        tools:layout="@layout/fragment_inmueble_detalle" >
+        <action
+            android:id="@+id/action_inmuebleDetalleFragment_to_nav_inmueble"
+            app:destination="@id/nav_inmueble" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.heissen.tpinmobiliaria.ui.logout.LogoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_logout" />
+</navigation>
