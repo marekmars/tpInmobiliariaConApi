@@ -33,12 +33,13 @@ public class PagoFragment extends Fragment {
         binding = FragmentPagoBinding.inflate(inflater, container, false);
         vm.getPagos(getArguments());
 
-        RecyclerView rv = binding.rvPagos;
-        GridLayoutManager gm = new GridLayoutManager(getContext(),1,RecyclerView.VERTICAL,false);
-        rv.setLayoutManager(gm);
 
-        vm.getInmuebles().observe(getViewLifecycleOwner(), inmuebles -> {
-            rv.setAdapter(new PagosAdapter(getContext(),inmuebles,getLayoutInflater()));
+
+        vm.getmPagos().observe(getViewLifecycleOwner(), pagos -> {
+            RecyclerView rv = binding.rvPagos;
+            GridLayoutManager gm = new GridLayoutManager(getContext(),1,RecyclerView.VERTICAL,false);
+            rv.setLayoutManager(gm);
+            rv.setAdapter(new PagosAdapter(getContext(),pagos,getLayoutInflater()));
         });
 
         return binding.getRoot();

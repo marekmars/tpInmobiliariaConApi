@@ -28,15 +28,17 @@
 
             <LinearLayout
                 android:id="@+id/linear4"
-                android:layout_width="217dp"
-                android:layout_height="644dp"
+                android:layout_width="164dp"
+                android:layout_height="649dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="3dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/linearinquilinodetalle"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <TextView
                     android:id="@+id/tvCodigoLabelFI"
@@ -98,31 +100,32 @@
                     android:text="Telefono"
                     android:textColor="@android:color/system_accent2_50"
                     android:textSize="20sp" />
+                <!--<TextView
+                        android:id="@+id/tvGaranteLabelFI"
+                        android:layout_width="match_parent"
+                        android:layout_height="35sp"
+                        android:layout_marginStart="15sp"
+                        android:layout_marginBottom="30sp"
+                        android:text="Garante"
+                        android:textColor="@android:color/system_accent2_50"
+                        android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/tvGaranteLabelFI"
-                    android:layout_width="match_parent"
-                    android:layout_height="35sp"
-                    android:layout_marginStart="15sp"
-                    android:layout_marginBottom="30sp"
-                    android:text="Garante"
-                    android:textColor="@android:color/system_accent2_50"
-                    android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/tvTelGaranteFiLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="35sp"
+                        android:layout_marginStart="15sp"
+                        android:layout_marginBottom="30sp"
+                        android:text="Telefono Garante"
+                        android:textColor="@android:color/system_accent2_50"
+                        android:textSize="20sp" />-->
 
-                <TextView
-                    android:id="@+id/tvTelGaranteFiLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="35sp"
-                    android:layout_marginStart="15sp"
-                    android:layout_marginBottom="30sp"
-                    android:text="Telefono Garante"
-                    android:textColor="@android:color/system_accent2_50"
-                    android:textSize="20sp" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearinquilinodetalle"
-                android:layout_width="162dp"
+                android:layout_width="213dp"
                 android:layout_height="647dp"
                 android:gravity="start"
                 android:orientation="vertical"
@@ -208,32 +211,33 @@
                     android:textColor="@android:color/holo_blue_light"
                     android:textSize="15sp"
                     android:textStyle="bold" />
+                <!--
+                                <TextView
+                                    android:id="@+id/tvGaranteFI"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35sp"
+                                    android:layout_marginEnd="15sp"
+                                    android:layout_marginBottom="30sp"
+                                    android:gravity="center_vertical|end"
+                                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                                    android:text="Garante"
+                                    android:textColor="@android:color/holo_blue_light"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvGaranteFI"
-                    android:layout_width="match_parent"
-                    android:layout_height="35sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginBottom="30sp"
-                    android:gravity="center_vertical|end"
-                    android:shadowColor="@color/material_dynamic_neutral_variant90"
-                    android:text="Garante"
-                    android:textColor="@android:color/holo_blue_light"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvTelGaranteFI"
-                    android:layout_width="match_parent"
-                    android:layout_height="35sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginBottom="30sp"
-                    android:gravity="center_vertical|end"
-                    android:shadowColor="@color/material_dynamic_neutral_variant90"
-                    android:text="Telefono Garante"
-                    android:textColor="@android:color/holo_blue_light"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                                <TextView
+                                    android:id="@+id/tvTelGaranteFI"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35sp"
+                                    android:layout_marginEnd="15sp"
+                                    android:layout_marginBottom="30sp"
+                                    android:gravity="center_vertical|end"
+                                    android:shadowColor="@color/material_dynamic_neutral_variant90"
+                                    android:text="Telefono Garante"
+                                    android:textColor="@android:color/holo_blue_light"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+                                    -->
 
             </LinearLayout>
 

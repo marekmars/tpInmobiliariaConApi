@@ -46,6 +46,7 @@ public class InquilinoAdapter extends RecyclerView.Adapter<InquilinoAdapter.View
         Log.d("salida",inmuebles.get(position).getFoto());
         Glide.with(context)
                 .load(ApiService.URL_BASE+inmuebles.get(position).getFoto())
+                .placeholder(R.drawable.inmueble_default)
                 .into(holder.imagen);
         holder.direccion.setText(inmuebles.get(position).getDireccion());
     }

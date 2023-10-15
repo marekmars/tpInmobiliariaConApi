@@ -29,7 +29,7 @@ public class InquilinoViewModel extends AndroidViewModel {
         super(application);
         mListInmueblesAlqu = new MutableLiveData<>();
         context = application;
-
+        cargarInmuebles();
     }
 
     public LiveData<List<Inmueble>> getmListInmueblesAlqu() {

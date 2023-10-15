@@ -50,9 +50,11 @@ public class LoginActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && checkSelfPermission(android.Manifest.permission.CALL_PHONE)
                 != PackageManager.PERMISSION_GRANTED&& checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED&& checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{android.Manifest.permission.CALL_PHONE}, 1000);
             requestPermissions(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1001);
+            requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 1002);
         }
     }
 

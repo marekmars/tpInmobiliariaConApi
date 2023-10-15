@@ -36,16 +36,16 @@ public class InquilinoDetalleFragment extends Fragment {
         vm = new ViewModelProvider(this).get(InquilinoDetalleViewModel.class);
         vm.getInquilino(getArguments());
 
-      /*  vm.getmInquilino().observe(getViewLifecycleOwner(), inquilino -> {
-            binding.tvCodigoFI.setText(inquilino.getIdInquilino()+"");
+        vm.getmInquilino().observe(getViewLifecycleOwner(), inquilino -> {
+            binding.tvCodigoFI.setText(inquilino.getId()+"");
             binding.tvApellidoFI.setText(String.valueOf(inquilino.getApellido()));
             binding.tvNombreFI.setText(String.valueOf(inquilino.getNombre()));
-            binding.tvDniFI.setText(String.valueOf(inquilino.getDNI()+""));
-            binding.tvEmailFI.setText(String.valueOf(inquilino.getEmail()));
+            binding.tvDniFI.setText(String.valueOf(inquilino.getDni()));
+            binding.tvEmailFI.setText(String.valueOf(inquilino.getCorreo()));
             binding.tvTelFI.setText(String.valueOf(inquilino.getTelefono()+""));
-            binding.tvGaranteFI.setText(String.valueOf(inquilino.getNombreGarante()));
-            binding.tvTelGaranteFI.setText(String.valueOf(inquilino.getTelefonoGarante()+""));
-        });*/
+/*            binding.tvGaranteFI.setText(String.valueOf(inquilino.getGarante()));
+            binding.tvTelGaranteFI.setText(String.valueOf(inquilino.getTelGarante()+""));*/
+        });
 
         return root;
     }

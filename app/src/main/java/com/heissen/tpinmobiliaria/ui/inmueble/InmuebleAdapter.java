@@ -46,6 +46,7 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.ViewHo
         holder.precio.setText("$"+inmuebles.get(position).getPrecio());
         Glide.with(context)
                 .load(ApiService.URL_BASE+inmuebles.get(position).getFoto())
+                .placeholder(R.drawable.inmueble_default)
                 .into(holder.imagen);
     }
 

@@ -18,6 +18,9 @@ import com.heissen.tpinmobiliaria.databinding.FragmentContratoDetalleBinding;
 import com.heissen.tpinmobiliaria.databinding.FragmentInquilinoDetalleBinding;
 import com.heissen.tpinmobiliaria.ui.inquilino.inquilinoDetalle.InquilinoDetalleViewModel;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class ContratoDetalleFragment extends Fragment {
 
     private ContratoDetalleViewModel vm;
@@ -34,12 +37,13 @@ public class ContratoDetalleFragment extends Fragment {
         View root = binding.getRoot();
         vm = new ViewModelProvider(this).get(ContratoDetalleViewModel.class);
         vm.getContrato(getArguments());
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         vm.getmContrato().observe(getViewLifecycleOwner(), contrato -> {
             binding.tvCodigoCD.setText(contrato.getId() + "");
-            binding.tvFechaInicioCD.setText(String.valueOf(contrato.getFechaInicio()));
-            binding.tvFechaFinCD.setText(String.valueOf(contrato.getFechaFin()));
-            binding.tvMontoCD.setText(String.valueOf(contrato.getMensualidad() + ""));
+            binding.tvFechaInicioCD.setText(contrato.getFechaInicio().format(formatoFecha));
+            binding.tvFechaFinCD.setText(contrato.getFechaFin().format(formatoFecha));
+            binding.tvMontoCD.setText("$"+String.valueOf(contrato.getMensualidad()));
             binding.tvInquilinoCD.setText(String.valueOf(contrato.getInquilino().toString()));
             binding.tvInmuebleCD.setText(String.valueOf(contrato.getInmueble().getDireccion()));
         });

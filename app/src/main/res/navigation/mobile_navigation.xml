@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_nav_inmueble_to_inmuebleDetalleFragment"
             app:destination="@id/nav_inmueble_detalle" />
+        <action
+            android:id="@+id/action_nav_inmueble_to_inmuebleAgregarFragment"
+            app:destination="@id/nav_Agregar_Fragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_inquilino"
@@ -88,4 +91,13 @@
         android:name="com.heissen.tpinmobiliaria.ui.logout.LogoutFragment"
         android:label="Logout"
         tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/nav_Agregar_Fragment"
+        android:name="com.heissen.tpinmobiliaria.ui.inmueble.inmuebleAgregar.InmuebleAgregarFragment"
+        android:label="Agregar Inmueble"
+        tools:layout="@layout/fragment_inmueble_agregar" >
+        <action
+            android:id="@+id/action_inmuebleAgregarFragment_to_nav_inmueble"
+            app:destination="@id/nav_inmueble" />
+    </fragment>
 </navigation>

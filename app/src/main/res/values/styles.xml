@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SpinnerPopupMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@drawable/edittext_bkg</item> <!-- Fondo con bordes redondeados -->
+        <item name="android:textColor">@color/black</item> <!-- Cambia el color del texto del menú -->
+        <item name="android:textSize">18sp</item>
+        <item name="android:dropDownVerticalOffset">4dp</item>
+    </style>
+</resources>

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.heissen.tpinmobiliaria.R;
 import com.heissen.tpinmobiliaria.models.Pago;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class PagosAdapter extends RecyclerView.Adapter<PagosAdapter.ViewHolder> {
@@ -34,13 +35,12 @@ public class PagosAdapter extends RecyclerView.Adapter<PagosAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.codPago.setText(pagos.get(position).getIdPago()+"");
-        holder.nroPago.setText(pagos.get(position).getNumero()+"");
-        holder.codContrato.setText(pagos.get(position).getContrato().getId()+"");
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        holder.codPago.setText(pagos.get(position).getId()+"");
+        holder.nroPago.setText(pagos.get(position).getNroPago()+"");
+        holder.codContrato.setText(pagos.get(position).getIdContrato()+"");
         holder.monto.setText(pagos.get(position).getImporte()+"");
-        holder.fechaPago.setText(pagos.get(position).getFechaDePago());
-
-
+        holder.fechaPago.setText(pagos.get(position).getFechaPago().format(formatoFecha));
     }
 
     @Override

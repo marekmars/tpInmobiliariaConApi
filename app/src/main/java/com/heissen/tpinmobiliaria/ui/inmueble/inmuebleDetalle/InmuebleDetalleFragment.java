@@ -50,6 +50,7 @@ public class InmuebleDetalleFragment extends Fragment {
             Log.d("salida",ApiService.URL_BASE+inmueble.getFoto());
             Glide.with(getContext())
                     .load(ApiService.URL_BASE+inmueble.getFoto())
+                    .placeholder(R.drawable.inmueble_default)
                     .into(binding.imgInmueble);
 
         });

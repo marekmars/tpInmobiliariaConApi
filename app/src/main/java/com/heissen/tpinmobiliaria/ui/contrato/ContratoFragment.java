@@ -34,12 +34,15 @@ public class ContratoFragment extends Fragment {
         binding = FragmentContratoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        vm.cargarInmuebles();
+
         vm.getmListInmueblesAlqu().observe(getViewLifecycleOwner(), inmuebles -> {
             RecyclerView rv=getActivity().findViewById(R.id.rvInmueblesAlqContrato);
             GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(), 2,GridLayoutManager.VERTICAL,false);
             rv.setLayoutManager(gridLayoutManager);
             ContratoAdapter adapter=new ContratoAdapter(getActivity(),inmuebles,getLayoutInflater());
             rv.setAdapter(adapter);
+
         });
 
         return root;

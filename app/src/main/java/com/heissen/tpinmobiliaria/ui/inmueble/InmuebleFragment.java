@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,7 +38,7 @@ vm.cargarInmuebles();
             InmuebleAdapter adapter=new InmuebleAdapter(inmuebles,getActivity(),getLayoutInflater());
             rv.setAdapter(adapter);
         });
-
+binding.btnAgregarInm.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.nav_Agregar_Fragment));
 
         return root;
     }

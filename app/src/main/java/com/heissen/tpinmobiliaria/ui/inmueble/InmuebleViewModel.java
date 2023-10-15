@@ -35,6 +35,7 @@ public class InmuebleViewModel extends AndroidViewModel {
         super(application);
         mListInmuebles = new MutableLiveData<>();
         context = application;
+        cargarInmuebles();
 
     }
 
@@ -53,7 +54,7 @@ public class InmuebleViewModel extends AndroidViewModel {
                 if(response.isSuccessful()){
                     mListInmuebles.setValue(response.body());
                 }else{
-                    Log.d("salida","ELSE "+response.raw().message());
+                    Log.d("salida","ELSE "+response.raw());
                 }
             }
 

@@ -122,7 +122,6 @@ public class InmuebleDetalleViewModel extends AndroidViewModel {
                 Log.d("salida", "ERROR " + t.getMessage());
             }
         });
-
     }
 
     public void setEstado(int id) {

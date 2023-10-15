@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.heissen.tpinmobiliaria.R;
 import com.heissen.tpinmobiliaria.models.Inmueble;
+import com.heissen.tpinmobiliaria.request.ApiService;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class ContratoAdapter extends RecyclerView.Adapter<ContratoAdapter.ViewHo
     public void onBindViewHolder(@NonNull ContratoAdapter.ViewHolder holder, int position) {
 
         Glide.with(context)
-                .load(inmuebles.get(position).getFoto())
+                .load(ApiService.URL_BASE+inmuebles.get(position).getFoto())
                 .into(holder.imagen);
         holder.direccion.setText(inmuebles.get(position).getDireccion());
     }

@@ -5,15 +5,21 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.heissen.tpinmobiliaria.models.Contrato;
 import com.heissen.tpinmobiliaria.models.Inmueble;
+import com.heissen.tpinmobiliaria.models.Inquilino;
+import com.heissen.tpinmobiliaria.models.Pago;
 import com.heissen.tpinmobiliaria.models.Propietario;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -32,7 +38,10 @@ public class ApiService {
 
     public static ApiInterface getApiInferface(){
 
-        Gson gson= new GsonBuilder().setLenient().create();
+        Gson gson= new GsonBuilder()
+                .setLenient()
+                .registerTypeAdapter(LocalDateTime.class, new Contrato.LocalDateTimeDeserializer())
+                .create();
 
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl(URL_BASE)
@@ -65,6 +74,10 @@ public class ApiService {
     public interface ApiInterface {
         final String URL_PROPIETARIOS = "api/Propietarios/";
         final String URL_INMUEBLES="api/Inmuebles/";
+        final String URL_INQUILINOS="api/Inquilinos/";
+        final String URL_CONTRATOS="api/Contratos/";
+        final String URL_PAGOS="api/Pagos/";
+
         //Metodos Propietario
         @FormUrlEncoded
         @POST(URL_PROPIETARIOS+"login")
@@ -87,12 +100,28 @@ public class ApiService {
         @PUT(URL_INMUEBLES+"toogleEstado/{id}")
         Call<Inmueble> toggleEstado(@Header("Authorization") String token,@Path("id") int id);
 
+        @POST(URL_INMUEBLES+"crear")
+        Call<Inmueble> crearInmueble(@Header("Authorization") String token,@Body Inmueble inmueble);
+
       /*  @GET(URL_INMUEBLES+"{id}/foto")
         Call<ResponseBody> getImage(@Header("Authorization") String token,@Path("id") int id);*/
 
         @GET(URL_INMUEBLES+"alquiladas")
         Call<List<Inmueble>> obtenerInmueblesAlq(@Header("Authorization") String token);
 
+        //metodos inquilino
+        @GET(URL_INQUILINOS+"inquiloActual/{id}")
+        Call<Inquilino> obtenerInquiloAct(@Header("Authorization") String token, @Path("id") int id);
+
+        //metodos contratos
+
+        @GET(URL_CONTRATOS+"{id}")
+        Call<Contrato> obtenerContrato(@Header("Authorization") String token,@Path("id") int id);
+
+        //metodos pagos
+
+        @GET(URL_PAGOS+"{idContrato}")
+        Call<ArrayList<Pago>> obtenerPagos(@Header("Authorization") String token, @Path("idContrato") int idContrato);
 
     }
 }
