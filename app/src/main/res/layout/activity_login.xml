@@ -52,7 +52,7 @@
                 android:drawablePadding="8dp"
                 android:ems="10"
                 android:hint="Contraseña"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 android:padding="8dp"
                 android:text="123456"
                 android:textColor="@color/black"
@@ -79,7 +79,6 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="92dp"
                 android:shadowColor="@color/black"
                 android:text="Login"
                 android:textColor="@color/white"
@@ -87,8 +86,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvErrorLogin"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/btnRecupero"
+                app:layout_constraintVertical_bias="0.198" />
 
             <TextView
                 android:id="@+id/tvSaludoLogin"
@@ -107,12 +106,22 @@
                 android:id="@+id/tvErrorLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/design_default_color_error"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnRecupero" />
+
+            <Button
+                android:id="@+id/btnRecupero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Se olvido la clave?"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etClaveLogin" />
 

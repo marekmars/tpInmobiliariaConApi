@@ -30,7 +30,6 @@ public class InmuebleFragment extends Fragment {
 
         binding = FragmentInmuebleBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-vm.cargarInmuebles();
         vm.getmListInmuebles().observe(getViewLifecycleOwner(), inmuebles -> {
             RecyclerView rv=getActivity().findViewById(R.id.rvInmuebles);
             GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(), 2,GridLayoutManager.VERTICAL,false);

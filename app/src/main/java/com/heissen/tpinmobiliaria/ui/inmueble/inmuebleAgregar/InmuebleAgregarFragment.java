@@ -54,36 +54,37 @@ public class InmuebleAgregarFragment extends Fragment {
         vm = new ViewModelProvider(this).get(InmuebleAgregarViewModel.class);
         vm.getmAdapterTipo().observe(getViewLifecycleOwner(), stringArrayAdapter -> binding.spinerTipo.setAdapter(stringArrayAdapter));
         vm.getmAdapterUso().observe(getViewLifecycleOwner(), stringArrayAdapter -> binding.spinerUso.setAdapter(stringArrayAdapter));
-imgUri=Uri.parse("android.resource://" + getActivity().getPackageName() + "/" + R.drawable.inmueble_default);
+        imgUri = Uri.parse("android.resource://" + getActivity().getPackageName() + "/" + R.drawable.inmueble_default);
         binding.imgNuevoInmueble.setImageResource(R.drawable.inmueble_default);
 
         binding.btnImg.setOnClickListener(v -> cargarImagen());
-        ;
         imagePickerLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
-                        imgUri = result.getData().getData();
-                        Log.d("salida", imgUri.toString());
-                        binding.imgNuevoInmueble.setImageURI(imgUri);
+                        vm.cargarImg(result);
                     }
                 }
         );
-
+        vm.getmImgUri().observe(getViewLifecycleOwner(), imgUri -> {
+            this.imgUri=imgUri;
+            binding.imgNuevoInmueble.setImageURI(imgUri);
+        });
 
         binding.btnCrearInm.setOnClickListener(v -> {
             Inmueble inmueble = new Inmueble(
                     binding.spinerUso.getSelectedItemPosition(),
                     binding.spinerTipo.getSelectedItemPosition(),
-                    Integer.parseInt(binding.etAmbientesCrear.getText().toString()), true,
+                    Integer.parseInt(binding.etAmbientesCrear.getText().toString()), false,
                     binding.etDireccionCrear.getText().toString(), Double.parseDouble(binding.etPrecioCrear.getText().toString()),
                     "", 0);
             vm.crearInmueble(imgUri, inmueble);
-            Navigation.findNavController(requireView()).navigate(R.id.nav_inmueble);
         });
 
-
+        vm.getmInmueble().observe(getViewLifecycleOwner(), inmueble -> {
+            Navigation.findNavController(requireView()).navigate(R.id.nav_inmueble);
+        });
 
         return binding.getRoot();
 

@@ -136,4 +136,10 @@ public class LoginActivityViewModel extends AndroidViewModel implements SensorEv
         sensorManager.unregisterListener(this);
     }
 
+    public void iniciarRecupero(){
+        Intent intent=new Intent(context,RecuperoActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
 }

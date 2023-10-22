@@ -62,15 +62,17 @@ public class ApiService {
 
     }
 
-    public static String leerToken(Context context){
-
-        SharedPreferences sp=context.getSharedPreferences("token.xml",0);
-        return sp.getString("token","");
-
-
+    public static void eliminarToken(Context context) {
+        SharedPreferences sp = context.getSharedPreferences("token.xml", 0);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.remove("token");
+        editor.apply();
     }
 
-
+    public static String leerToken(Context context){
+        SharedPreferences sp=context.getSharedPreferences("token.xml",0);
+        return sp.getString("token","");
+    }
     public interface ApiInterface {
         final String URL_PROPIETARIOS = "api/Propietarios/";
         final String URL_INMUEBLES="api/Inmuebles/";
@@ -84,11 +86,16 @@ public class ApiService {
         Call<String> login(@Field("Correo") String correo, @Field("Clave") String clave);
         @FormUrlEncoded
         @PUT(URL_PROPIETARIOS+"editar")
-        Call<Propietario> editarPropietario(@Header("Authorization") String token, @Field("Nombre") String nombre, @Field("Apellido") String apellido,
+        Call<String> editarPropietario(@Header("Authorization") String token, @Field("Nombre") String nombre, @Field("Apellido") String apellido,
         @Field("Dni") String dni, @Field("Telefono") String telefono,
         @Field("Correo") String correo, @Field("Clave") String clave);
         @GET(URL_PROPIETARIOS+"user")
         Call<Propietario> obtenerPropietario(@Header("Authorization") String token);
+        @FormUrlEncoded
+        @POST(URL_PROPIETARIOS+"email")
+        Call<Propietario> inciarRecupero(@Field("correo") String correo);
+
+
 
         //metodos inmbueble
         @GET(URL_INMUEBLES+"propiedadesUsuario")

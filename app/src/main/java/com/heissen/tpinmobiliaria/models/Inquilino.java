@@ -9,8 +9,6 @@ public class Inquilino implements Serializable {
     private String dni;
     private String telefono;
     private String correo;
-/*    private String Garante;
-    private String TelGarante;*/
     private boolean estado;
 
     public Inquilino() {
@@ -43,6 +41,10 @@ public class Inquilino implements Serializable {
     public void setTelGarante(String telGarante) {
         TelGarante = telGarante;
     }*/
+
+
+
+
 
     public int getId() {
         return id;

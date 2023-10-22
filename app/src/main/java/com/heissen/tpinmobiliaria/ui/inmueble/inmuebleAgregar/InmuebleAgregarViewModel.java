@@ -14,6 +14,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
+import androidx.activity.result.ActivityResult;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -38,20 +39,27 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class InmuebleAgregarViewModel extends AndroidViewModel {
-    private static final int PICK_IMAGE_REQUEST = 1;
-
-
-    private MutableLiveData<ArrayAdapter<String>> mAdapterTipo;
+     private MutableLiveData<ArrayAdapter<String>> mAdapterTipo;
     private MutableLiveData<ArrayAdapter<String>> mAdapterUso;
+    private MutableLiveData<Inmueble> mInmueble;
+    private MutableLiveData<Uri> mImgUri;
 
 
     public InmuebleAgregarViewModel(@NonNull Application application) {
         super(application);
         mAdapterTipo = new MutableLiveData<>();
         mAdapterUso = new MutableLiveData<>();
+        mImgUri=new MutableLiveData<>();
+        mInmueble=new MutableLiveData<>();
         cargarSpiners();
     }
+    public LiveData<Uri> getmImgUri() {
+        return mImgUri;
+    }
 
+    public LiveData<Inmueble> getmInmueble() {
+        return mInmueble;
+    }
     public LiveData<ArrayAdapter<String>> getmAdapterTipo() {
         return mAdapterTipo;
     }
@@ -60,7 +68,13 @@ public class InmuebleAgregarViewModel extends AndroidViewModel {
         return mAdapterUso;
     }
 
+    public void cargarImg(ActivityResult result){
+        if(result.getData()!=null){
+            mImgUri.setValue(result.getData().getData());
+            Log.d("salida",mImgUri.getValue().toString());
+        }
 
+    }
 
 
     public void cargarSpiners() {
@@ -108,6 +122,7 @@ public class InmuebleAgregarViewModel extends AndroidViewModel {
         }
     }
 
+
     public void crearInmueble(Uri uri, Inmueble i) {
         String token = ApiService.leerToken(getApplication());
         ApiService.ApiInterface apiService = ApiService.getApiInferface();
@@ -122,7 +137,7 @@ public class InmuebleAgregarViewModel extends AndroidViewModel {
             @Override
             public void onResponse(Call<Inmueble> call, Response<Inmueble> response) {
                 if (response.isSuccessful()) {
-
+                    mInmueble.postValue(response.body());
                     Log.d("salida", response.body().toString());
                 } else {
                     Log.d("salida", "ELSE " + response.raw());

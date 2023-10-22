@@ -2,6 +2,7 @@ package com.heissen.tpinmobiliaria;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
         binding.btnLogin.setOnClickListener(v -> vm.login(binding.etCorreoLogin.getText().toString()
                 , binding.etClaveLogin.getText().toString()));
+        binding.btnRecupero.setOnClickListener(v -> vm.iniciarRecupero());
 
         solicitarPermisos();
 

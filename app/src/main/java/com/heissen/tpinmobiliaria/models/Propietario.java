@@ -14,12 +14,12 @@ public class Propietario implements Serializable {
     private String correo;
     private String clave;
 
-    private int avatar;
+    private String avatar;
 
     public Propietario() {
     }
 
-    public Propietario(int id, String apellido, String nombre, String dni, String telefono, String correo, String clave, int avatar) {
+    public Propietario(int id, String apellido, String nombre, String dni, String telefono, String correo, String clave, String avatar) {
         this.id = id;
         this.apellido = apellido;
         this.nombre = nombre;
@@ -32,11 +32,11 @@ public class Propietario implements Serializable {
 
 
 
-    public int getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(int avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 

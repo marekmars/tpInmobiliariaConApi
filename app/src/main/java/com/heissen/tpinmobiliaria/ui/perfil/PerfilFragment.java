@@ -11,8 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 
+import com.bumptech.glide.Glide;
+import com.heissen.tpinmobiliaria.R;
 import com.heissen.tpinmobiliaria.databinding.FragmentPerfilBinding;
 import com.heissen.tpinmobiliaria.models.Propietario;
+import com.heissen.tpinmobiliaria.request.ApiService;
 
 public class PerfilFragment extends Fragment {
 
@@ -35,7 +38,11 @@ public class PerfilFragment extends Fragment {
             binding.etApellido.setText(propietario.getApellido());
             binding.etCorreo.setText(propietario.getCorreo());
             binding.etTelefono.setText(propietario.getTelefono());
-            binding.imgAvatar.setImageResource(propietario.getAvatar());
+            Glide.with(getActivity())
+                    .load(ApiService.URL_BASE+propietario.getAvatar())
+                    .placeholder(R.drawable.avatar_default)
+                    .into(binding.imgAvatar);
+
         });
 
 

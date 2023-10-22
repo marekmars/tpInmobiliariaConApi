@@ -17,8 +17,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.heissen.tpinmobiliaria.databinding.ActivityMenuBinding;
+import com.heissen.tpinmobiliaria.request.ApiService;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -47,7 +49,7 @@ public class MenuActivity extends AppCompatActivity {
                 .setOpenableLayout(drawer)
                 .build();
 
-        /*vm.cargarUser();*/
+        vm.cargarUser();
 
         vm.getmPropietario().observe(this, p -> {
             TextView tvCorreo = binding.navView.getHeaderView(0).findViewById(R.id.tvCorreoMenu);
@@ -57,7 +59,11 @@ public class MenuActivity extends AppCompatActivity {
             tvUsuario.setText(p.getApellido() + ", " + p.getNombre());
 
             ImageView imgAvatar = binding.navView.getHeaderView(0).findViewById(R.id.imgUsuarioMenu);
-            imgAvatar.setImageResource(p.getAvatar());
+            Glide.with(getApplication())
+                    .load(ApiService.URL_BASE+p.getAvatar())
+                    .placeholder(R.drawable.avatar_default)
+                    .into(imgAvatar);
+            /*imgAvatar.setImageResource(p.getAvatar());*/
         });
 
 

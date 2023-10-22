@@ -13,6 +13,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.heissen.tpinmobiliaria.LoginActivity;
 import com.heissen.tpinmobiliaria.MenuActivity;
 import com.heissen.tpinmobiliaria.R;
 import com.heissen.tpinmobiliaria.models.Propietario;
@@ -60,7 +61,6 @@ public class PerfilViewModel extends AndroidViewModel {
             public void onResponse(Call<Propietario> call, Response<Propietario> response) {
                 if(response.isSuccessful()){
                     Propietario propietarioAux=response.body();
-                    propietarioAux.setAvatar(R.drawable.juan);
                     Log.d("salida ",response.body().toString());
                     mPropietario.setValue(propietarioAux);
                     Log.d("salida ", "AVATAR DESDE VM: "+mPropietario.getValue().getAvatar()+"");
@@ -79,28 +79,40 @@ public class PerfilViewModel extends AndroidViewModel {
     public void editarPerfil(Propietario propietario){
         String token= ApiService.leerToken(context);
         ApiService.ApiInterface apiService = ApiService.getApiInferface();
-
         if(!activo.getValue()){
             activar();
         }else{
-
-            Call<Propietario>llamada= apiService.editarPropietario(token,propietario.getNombre(), propietario.getApellido(),
+            Call<String>llamada= apiService.editarPropietario(token,propietario.getNombre(), propietario.getApellido(),
                     propietario.getDni(), propietario.getTelefono(), propietario.getCorreo(), propietario.getClave());
-            llamada.enqueue(new Callback<Propietario>() {
+            llamada.enqueue(new Callback<String>() {
                 @Override
-                public void onResponse(Call<Propietario> call, Response<Propietario> response) {
+                public void onResponse(Call<String> call, Response<String> response) {
                     if(response.isSuccessful()){
-                        Intent intent=new Intent(context, MenuActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        Toast.makeText(context, "Usuario actualizado correctamente", Toast.LENGTH_SHORT).show();
-                        context.startActivity(intent);
+                        if(response.body()==null){
+                            Toast.makeText(context, "Correo ya existente", Toast.LENGTH_SHORT).show();
+                            activar();
+                        }else if(response.body().equals("Reloguear")){
+                            Toast.makeText(context, "Debe Volver a loguearse", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(context, LoginActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            context.startActivity(intent);
+                        }else{
+                            ApiService.guardarToken(getApplication(),"Bearer "+response.body());
+
+                            Intent intent=new Intent(context, MenuActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            Toast.makeText(context, "Usuario actualizado correctamente", Toast.LENGTH_SHORT).show();
+                            context.startActivity(intent);
+                        }
+
+
                     }else{
                         Log.d("salida","ELSE "+response.raw().message());
                     }
                 }
 
                 @Override
-                public void onFailure(Call<Propietario> call, Throwable t) {
+                public void onFailure(Call<String> call, Throwable t) {
                     Log.d("salida","ERROR "+t.getMessage());
                 }
 

@@ -11,4 +11,5 @@
     <color name="colorDesactivado">#ac3e3e</color> <!-- Rojo cuando está desactivado -->
     <color name="colorActivadoThunmb">#c7e3c3</color> <!-- Verde cuando está activado -->
     <color name="colorDesactivadoThumb">#d3a7a7</color> <!-- Rojo cuando está desactivado -->
+    <color name="colorTransparent">#00000000</color>
 </resources>

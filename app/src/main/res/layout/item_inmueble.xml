@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardInmueble"
         android:layout_width="189dp"
-        android:layout_height="241dp"
+        android:layout_height="266dp"
         android:layout_margin="10dp"
         app:cardBackgroundColor="@color/cardview_light_background"
         app:cardCornerRadius="20dp"
@@ -25,25 +25,36 @@
             android:layout_height="match_parent"
             android:background="@drawable/side_nav_bar">
 
-            <ImageView
-                android:id="@+id/imgFotoInmueble"
-                android:layout_width="155.4dp"
-                android:layout_height="116.4dp"
-                android:layout_marginTop="16dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgFotoInmueble"
+                    android:layout_width="155.4dp"
+                    android:layout_height="117dp"
+                    android:layout_marginTop="0dp"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/CardDatosII"
-                android:layout_width="141dp"
-                android:layout_height="87dp"
+                android:layout_width="157dp"
+                android:layout_height="88dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgFotoInmueble">
+                app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
