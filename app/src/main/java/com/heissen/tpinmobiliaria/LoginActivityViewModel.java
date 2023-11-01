@@ -113,7 +113,7 @@ public class LoginActivityViewModel extends AndroidViewModel implements SensorEv
 
     private void hacerLlamadaInmobiliaria() {
 
-        String numeroInmobiliaria = "tel:+2664702615";
+        String numeroInmobiliaria = "tel:+2664553747";
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse(numeroInmobiliaria));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
